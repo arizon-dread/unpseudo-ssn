@@ -1,4 +1,0 @@
-1 19121212-1212 asdflds a matching line
-2 20121212-1212 jköklja another matching line
-3 19881211-1112 ökljköl yet another matching line
-5 19881211-1112 asdfasd one more matching line

@@ -9,9 +9,12 @@ import (
 )
 
 func main() {
-	salt := os.Args[1]
+	var salt = ""
+	if len(os.Args) > 1 {
+		salt = os.Args[1]
+	}
 	if salt == "" {
-		panic("Could not read salt string as first argument")
+		fmt.Println("Running hash without salt.")
 	}
 	fi, err := os.Open("input.txt")
 	if err != nil {
