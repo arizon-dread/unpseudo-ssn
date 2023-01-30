@@ -3,9 +3,9 @@
 ## Prerequisites
 
 * Expects `input.txt` to contain the cleartext data.
-* Expects `hashed_data` to contain lines of files with SHA256 hashes somewhere on the line
+* Expects `hashed_data.txt` to contain lines of files with SHA256 hashes somewhere on the line
 * Outputs `output.txt` with only the lines containing unhashable strings (lines where the input.txt content when hashed, can be matched with the sha256 hash on the line)
-* A saltstring is optional to the program as $1 parameter.
+* A saltstring is optional to the program as `$1` parameter.
 
 ## Building and running
 
