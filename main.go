@@ -30,6 +30,9 @@ func main() {
 	defer fo.Close()
 
 	data, err := os.Open("hashed_data.txt")
+	if err != nil {
+		fmt.Printf("Could not read hashed_data.txt\n")
+	}
 
 	defer data.Close()
 
