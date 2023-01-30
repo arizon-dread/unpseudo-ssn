@@ -24,14 +24,16 @@ func main() {
 
 	fo, err := os.Create("output.txt")
 	if err != nil {
-		fmt.Printf("Could not create output.txt\n")
+		fmt.Printf("Could not create output.txt: %v, using stdout.\n", err)
+		fo = os.Stdout
 	}
 
 	defer fo.Close()
 
 	data, err := os.Open("hashed_data.txt")
 	if err != nil {
-		fmt.Printf("Could not read hashed_data.txt\n")
+		fmt.Printf("Could not read hashed_data.txt: %v\n", err)
+		panic("Could not read hashed_data.txt")
 	}
 
 	defer data.Close()
