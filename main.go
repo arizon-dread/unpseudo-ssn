@@ -10,8 +10,21 @@ import (
 
 func main() {
 	var salt = ""
+	var dirty bool = false
+	var listSsnHash bool = false
 	if len(os.Args) > 1 {
-		salt = os.Args[1]
+
+		for _, arg := range os.Args {
+			if strings.Contains(arg, "-d") {
+				dirty = true
+			} else if strings.Contains(arg, "-l") {
+				listSsnHash = true
+			} else {
+				salt = arg
+			}
+		}
+		//fmt.Printf("dirty: %v, list: %v, salt: %v", dirty, listSsnHash, salt)
+
 	}
 	if salt == "" {
 		fmt.Println("Running hash without salt.")
@@ -54,10 +67,27 @@ func main() {
 			// fmt.Printf("key %v\n", key)
 			// fmt.Printf("val %v\n", val)
 			if strings.Contains(line, key) {
-				newline := strings.Replace(line, key, val, 1)
+				var newline string = ""
+				if dirty {
+					newline = strings.Replace(line, key, val, 1)
+				} else {
+					newline = line
+				}
+
 				// fmt.Printf("line w/ replaced hash: %v\n", newline)
 				fo.WriteString(newline + "\n")
 			}
+		}
+	}
+	if listSsnHash {
+		ssnHashOut, err := os.Create("ssn_hash.txt")
+		if err != nil {
+			fmt.Printf("tried to create ssn_hash.txt for output of ssn hash file, but got error: %v\n", err)
+		}
+
+		defer ssnHashOut.Close()
+		for key, val := range ssnHash {
+			ssnHashOut.WriteString(fmt.Sprintf("%v %v\n", val, key))
 		}
 	}
 }

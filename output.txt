@@ -1,4 +1,4 @@
-1 19121212-1212 asdflds a matching line
-2 20121212-1212 jköklja another matching line
-3 19881211-1112 ökljköl yet another matching line
-5 19881211-1112 asdfasd one more matching line
+1 0077ed3020a34b37341a67bf135eedcb206995de3f235fb8b90ce711fec3206e asdflds a matching line
+2 75f6728d8cbb7bf9a3c3a5bf3e234e5b809a77a9a7f577888c12ff58e9bd5853 jköklja another matching line
+3 e34f3241b1336e9e32d864521c74bf65082b4b4144b7a5bdb207f147b954b7f3 ökljköl yet another matching line
+5 e34f3241b1336e9e32d864521c74bf65082b4b4144b7a5bdb207f147b954b7f3 asdfasd one more matching line
