@@ -60,7 +60,6 @@ func main() {
 			}
 		}
 	}
-
 }
 
 func readFileToStringSlice(f *os.File) []string {
