@@ -12,6 +12,10 @@
 
 ## Building and running
 
+* Released binaries
+
+    See the [Releases page](https://github.com/arizon-dread/unpseudo-ssn/releases) for more info
+
 * Build
 
     `go build .`
