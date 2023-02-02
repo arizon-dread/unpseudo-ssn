@@ -39,5 +39,7 @@
 
     `go run . [ <saltstring> -d -l]`
 
+* If you only want to create a file with cleartext data and their hashes based on a specific saltstring, you could run `./pseudo-ssn <saltstring> -l` with an empty `hashed_data.txt` but with an `input.txt` containing data. You would then get an empty `output.txt` and a `ssn_hash.txt` file containing cleartext data and their SHA256 sum.
+
 ## Testing data
 The hashed_data.txt content is hashed with this salt: 5e433dda-989b-11ed-98bf-00155d4e6602
