@@ -82,7 +82,8 @@ func main() {
 	if listSsnHash {
 		ssnHashOut, err := os.Create("ssn_hash.txt")
 		if err != nil {
-			fmt.Printf("tried to create ssn_hash.txt for output of ssn hash file, but got error: %v\n", err)
+			fmt.Printf("tried to create ssn_hash.txt for output of ssn hash file, but got error: %v\nUsing stdout.", err)
+			ssnHashOut = os.Stdout
 		}
 
 		defer ssnHashOut.Close()
