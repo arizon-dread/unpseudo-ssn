@@ -2,7 +2,7 @@
 
 The documentation exists in Swedish with Windows specific examples and in English with Linux specific examples. Scroll down for English and Linux.
 
-Dokumentationen finns på svenska med Windows-specifika exempel och på engelska med Linux-specifika exempel. Skrolla ner för engelsa och Linux.
+Dokumentationen finns på svenska med Windows-specifika exempel och på engelska med Linux-specifika exempel. Skrolla ner för engelska och Linux.
 
 ## Svenska och Windows
 
@@ -10,8 +10,8 @@ Dokumentationen finns på svenska med Windows-specifika exempel och på engelska
 
 * Applikationen förväntar sig att exekveras från den mapp där följande filer finns:
 * `input.txt` ska innehålla klartextdata, ett värde per rad, som motsvarar hashat data i följande fil,
-* `hashed_data.txt` innehåller rader med en hashad sträng någonstans på raden.
-* Applikationen skapar `output.txt` när applikationen körs med filtrerade rader från `hashed_data.txt`, bara de rader som har en hash som matchar innehållet i `input.txt` (när det hashas för jämförelse) kommer att komma med i `output.txt`.
+* `hashed_data.txt` innehåller rader med en SHA256-hashad sträng någonstans på raden.
+* Applikationen skapar `output.txt` när den körs med filtrerade rader från `hashed_data.txt`, bara de rader som har en hash som matchar innehållet i `input.txt` (när det hashas för jämförelse) kommer att komma med i `output.txt`.
 * En `saltstring` är frivillig som första (`$1`) inparameter till programmet. Är klartextvärdet i indatat i `hashed_data.txt` hashat med en saltsträng måste den användas när programmet körs för att körningen ska kunna jämföra hashsträngar och få träff.
 * Frivillig: `-d` flagga för "dirty"-läge (pga att känsligt data exponeras), gör att varje rad i `output.txt` då kommer få sitt klartextvärde istället för hashen.
 * Frivillig: `-l` fragga för att lista klartextvärde (ssn) och hashat värde i nyckelvärdepar. Skapar filen `ssn_hash.txt` med klartextdata + motsvarande hash, ett par per rad. Blir då en nyckelfil för att kunna korsreferera innehållet i `output.txt`.
