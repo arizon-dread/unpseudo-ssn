@@ -102,6 +102,6 @@ func readFileToStringSlice(f *os.File) []string {
 func hashData(saltPrefix string, s string, saltSuffix string) string {
 	h := sha256.New()
 	h.Write([]byte(saltPrefix + s + saltSuffix))
-	fmt.Printf("%v%v%v\n", saltPrefix, s, saltSuffix)
+	//fmt.Printf("%v%v%v\n", saltPrefix, s, saltSuffix)
 	return fmt.Sprintf("%x", h.Sum(nil))
 }
