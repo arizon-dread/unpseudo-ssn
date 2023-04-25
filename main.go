@@ -3,30 +3,26 @@ package main
 import (
 	"bufio"
 	"crypto/sha256"
+	"flag"
 	"fmt"
 	"os"
 	"strings"
 )
 
 func main() {
-	var salt = ""
+	var saltSuffix = ""
+	var saltPrefix = ""
 	var dirty bool = false
 	var listSsnHash bool = false
-	if len(os.Args) > 1 {
 
-		for _, arg := range os.Args {
-			if strings.Contains(arg, "-d") {
-				dirty = true
-			} else if strings.Contains(arg, "-l") {
-				listSsnHash = true
-			} else {
-				salt = arg
-			}
-		}
-		//fmt.Printf("dirty: %v, list: %v, salt: %v", dirty, listSsnHash, salt)
+	flag.BoolVar(&dirty, "d", false, "dirty mode, display cleartext in output")
+	flag.BoolVar(&listSsnHash, "l", false, "list ssn + hash equivalent in ssn_hash.txt")
+	flag.StringVar(&saltPrefix, "p", "", "saltstring prefix")
+	flag.StringVar(&saltSuffix, "s", "", "saltstring suffix")
 
-	}
-	if salt == "" {
+	flag.Parse()
+
+	if saltPrefix == "" && saltSuffix == "" {
 		fmt.Println("Running hash without salt.")
 	}
 	fi, err := os.Open("input.txt")
@@ -55,7 +51,7 @@ func main() {
 
 	var ssnHash = make(map[string]string)
 	for _, s := range ssn {
-		hash := hashData(s, salt)
+		hash := hashData(saltPrefix, s, saltSuffix)
 		ssnHash[hash] = s
 	}
 
@@ -103,8 +99,9 @@ func readFileToStringSlice(f *os.File) []string {
 	return content
 }
 
-func hashData(s string, salt string) string {
+func hashData(saltPrefix string, s string, saltSuffix string) string {
 	h := sha256.New()
-	h.Write([]byte(s + salt))
+	h.Write([]byte(saltPrefix + s + saltSuffix))
+	fmt.Printf("%v%v%v\n", saltPrefix, s, saltSuffix)
 	return fmt.Sprintf("%x", h.Sum(nil))
 }
