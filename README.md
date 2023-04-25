@@ -54,7 +54,7 @@ Dokumentationen finns på svenska med Windows-specifika exempel och på engelska
 
     `.\unpseudo-ssn.exe -s=<saltsträng> -l`
 
-    Givet en tom `hashed_data.txt` och hashning med både prefix och suffix kan detta köras för att endast ge en nyckelfil innehållandes klartextdata och korresponderande hash, givet att saltsträngar skickas med enligt exemplet och att input.txt innehåller data skulle det ge en tom `output.txt` och en separat nyckelfil med klartextdata + korresponderande hash (ssn_hash.txt):
+    Givet en tom `hashed_data.txt` och hashning med både prefix och suffix kan detta köras för att endast ge en nyckelfil innehållandes klartextdata och korresponderande hash, givet att saltsträngar skickas med enligt exemplet och att `input.txt` innehåller data skulle det ge en tom `output.txt` och en separat nyckelfil med klartextdata + korresponderande hash (ssn_hash.txt):
 
     `.\unpseudo-ssn.exe -p=<saltsträng1> -s=<saltsträng2> -l`
 
