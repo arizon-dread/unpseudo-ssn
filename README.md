@@ -128,7 +128,7 @@ Innehållet i filen `hashed_data.txt` som följer med koden är hashat med följ
     
     `./unpseudo-ssn -s=<saltstring> -l`
 
-    Given an empty `hashed_data.txt` and hashing with both prefix and suffix, to only create a key file with cleartext string + equivalent hash given saltstrings an `input.txt` with cleartext strings, this will output an empty `output.txt` and a separate key file with cleartext + matching hash (`ssn_hash.txt`):
+    Given an empty `hashed_data.txt` and hashing with both prefix and suffix, to only create a key file with cleartext string + equivalent hash given saltstrings and `input.txt` with cleartext strings, this will output an empty `output.txt` and a separate key file with cleartext + matching hash (`ssn_hash.txt`):
 
     `./unpseudo-ssn -p=<saltstring1> -s=<saltstring2> -l`
 
